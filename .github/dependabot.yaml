@@ -1,0 +1,21 @@
+---
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: 🔼
+    labels:
+      - "area: cicd 👷‍♂️"
+      - "type: dependency 🔼"
+
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: 🔼
+    labels:
+      - "type: dependency 🔼"
