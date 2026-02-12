@@ -1,0 +1,11 @@
+{
+  "url": "https://cli.github.com/packages",
+  "suite": "stable",
+  "components": [
+    "main"
+  ],
+  "gpg": "cli.github.com/packages/githubcli-archive-keyring.gpg",
+  "packages": [
+    "gh (>= 2.86.0)"
+  ]
+}

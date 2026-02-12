@@ -11,6 +11,7 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     aptly \
     debian-archive-keyring \
+    jq \
   && /usr/libexec/kloudkit/apt-cleanup
 
 COPY src/aptly.conf /etc/aptly.conf

@@ -7,17 +7,17 @@ set -euo pipefail
 #
 # Expects:
 #   - /run/secrets/GPG_KLOUDKIT_PRIVATE  (Docker build secret)
-#   - /tmp/mirrors/*.conf                (mirror conf files)
+#   - /tmp/mirrors/*.json                (mirror JSON files)
 
 gpg --batch --import /run/secrets/GPG_KLOUDKIT_PRIVATE
 
 gpg_list=$(mktemp)
 trap 'rm -f "$gpg_list"' EXIT
 
-for conf in /tmp/mirrors/*.conf; do
-  gpg_url=$(grep "^gpg=" "$conf" | cut -d= -f2- || true)
+for conf in /tmp/mirrors/*.json; do
+  gpg_url=$(jq -r '.gpg // empty' "$conf")
   [[ -z "$gpg_url" ]] && continue
-  name=$(basename "$conf" .conf)
+  name=$(basename "$conf" .json)
   printf '%s\t%s\n' "$name" "$gpg_url" >> "$gpg_list"
 done
 

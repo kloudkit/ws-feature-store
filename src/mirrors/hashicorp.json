@@ -1,0 +1,9 @@
+{
+  "url": "https://apt.releases.hashicorp.com",
+  "suite": "trixie",
+  "components": ["main"],
+  "gpg": "apt.releases.hashicorp.com/gpg",
+  "packages": [
+    "terraform (>= 1.14.5-1)"
+  ]
+}

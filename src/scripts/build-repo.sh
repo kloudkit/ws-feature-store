@@ -2,26 +2,22 @@
 
 set -euo pipefail
 
-# Create aptly mirrors from per-mirror conf files, import each mirror's
+# Create aptly mirrors from per-mirror JSON files, import each mirror's
 # packages, and publish the resulting repository.
 #
 # Expects:
-#   - /tmp/mirrors/*.conf  (one file per mirror)
-
-get_field()    { grep "^${2}=" "$1" | cut -d= -f2- || true; }
-get_packages() { sed '/^#/d; /^$/d; /^[a-z_]*=/d' "$1"; }
+#   - /tmp/mirrors/*.json  (one file per mirror)
 
 ################################ Create Mirrors ################################
 
-for conf in /tmp/mirrors/*.conf; do
-  name=$(basename "$conf" .conf)
-  url=$(get_field "$conf" url)
-  suite=$(get_field "$conf" suite)
-  components=$(get_field "$conf" components)
-  extra=$(get_field "$conf" extra)
-  filter=$(get_packages "$conf" | paste -sd '|')
+for conf in /tmp/mirrors/*.json; do
+  name=$(basename "$conf" .json)
+  url=$(jq -r '.url' "$conf")
+  suite=$(jq -r '.suite' "$conf")
+  extra=$(jq -r '.extra // empty' "$conf")
+  filter=$(jq -r '.packages | join("|")' "$conf")
 
-  IFS=',' read -ra comp_array <<< "$components"
+  mapfile -t comp_array < <(jq -r '.components[]' "$conf")
 
   aptly mirror create \
     -filter="$filter" -filter-with-deps \
@@ -30,17 +26,17 @@ done
 
 ################################ Update Mirrors ################################
 
-for conf in /tmp/mirrors/*.conf; do
-  aptly mirror update "$(basename "$conf" .conf)"
+for conf in /tmp/mirrors/*.json; do
+  aptly mirror update "$(basename "$conf" .json)"
 done
 
 ############################### Import Packages ################################
 
 aptly repo create -distribution=trixie ws-feature-store
 
-for conf in /tmp/mirrors/*.conf; do
-  name=$(basename "$conf" .conf)
-  mapfile -t packages < <(get_packages "$conf")
+for conf in /tmp/mirrors/*.json; do
+  name=$(basename "$conf" .json)
+  mapfile -t packages < <(jq -r '.packages[]' "$conf")
   aptly repo import "$name" ws-feature-store -with-deps "${packages[@]}"
 done
 

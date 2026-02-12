@@ -1,0 +1,11 @@
+{
+  "url": "https://pkg.cloudflare.com/cloudflared",
+  "suite": "any",
+  "components": [
+    "main"
+  ],
+  "gpg": "pkg.cloudflare.com/cloudflare-main.gpg",
+  "packages": [
+    "cloudflared (>= 2026.2.0)"
+  ]
+}
