@@ -1,0 +1,16 @@
+{
+  "name": "talos",
+  "version": "1.12.4",
+  "files": [
+    {
+      "url": "https://github.com/siderolabs/talos/releases/download/v1.12.4/talosctl-linux-amd64",
+      "filename": "talosctl.linux.amd64",
+      "sha256": "6b85f633721e02d31c8a28a633c9cd8ebfb7e41677ff29e94236a082d4cd6cd9"
+    },
+    {
+      "url": "https://github.com/siderolabs/talos/releases/download/v1.12.4/talosctl-linux-arm64",
+      "filename": "talosctl.linux.arm64",
+      "sha256": "5d6f37684d337a9b689216a4e7cc07b58996bad34afbd9d032ab1bd058cfe282"
+    }
+  ]
+}

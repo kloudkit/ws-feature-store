@@ -6,11 +6,22 @@ set -euo pipefail
 # packages, and publish the resulting repository.
 #
 # Expects:
-#   - /tmp/mirrors/*.json  (one file per mirror)
+#   - /tmp/src/mirrors/*.json  (one file per mirror)
 
-################################ Create Mirrors ################################
+shopt -s nullglob
+files=(/tmp/src/mirrors/*.json)
+shopt -u nullglob
 
-for conf in /tmp/mirrors/*.json; do
+if [[ ${#files[@]} -eq 0 ]]; then
+  echo "No mirror definitions found."
+  exit 0
+fi
+
+######################### Create, Update & Import ##############################
+
+aptly repo create -distribution=trixie ws-feature-store
+
+for conf in "${files[@]}"; do
   name=$(basename "$conf" .json)
   url=$(jq -r '.url' "$conf")
   suite=$(jq -r '.suite' "$conf")
@@ -22,20 +33,9 @@ for conf in /tmp/mirrors/*.json; do
   aptly mirror create \
     -filter="$filter" -filter-with-deps \
     ${extra:+"$extra"} "$name" "$url" "$suite" "${comp_array[@]}"
-done
 
-################################ Update Mirrors ################################
+  aptly mirror update "$name"
 
-for conf in /tmp/mirrors/*.json; do
-  aptly mirror update "$(basename "$conf" .json)"
-done
-
-############################### Import Packages ################################
-
-aptly repo create -distribution=trixie ws-feature-store
-
-for conf in /tmp/mirrors/*.json; do
-  name=$(basename "$conf" .json)
   mapfile -t packages < <(jq -r '.packages[]' "$conf")
   aptly repo import "$name" ws-feature-store -with-deps "${packages[@]}"
 done

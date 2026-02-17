@@ -2,11 +2,14 @@
 
 set -euo pipefail
 
+# Fetch the latest available version of each package from upstream APT
+# indices and update the version constraints in src/mirrors/*.json.
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MIRRORS_DIR="${SCRIPT_DIR}/../src/mirrors"
 
-TMPDIR=$(mktemp -d)
-trap 'rm -rf "$TMPDIR"' EXIT
+WORK_DIR=$(mktemp -d)
+trap 'rm -rf "$WORK_DIR"' EXIT
 
 download_index() {
   local url="$1" output="$2"
@@ -35,8 +38,17 @@ get_latest_version() {
 
 declare -A INDEX_CACHE
 
+shopt -s nullglob
+files=("$MIRRORS_DIR"/*.json)
+shopt -u nullglob
+
+if [[ ${#files[@]} -eq 0 ]]; then
+  echo "No mirror definitions found."
+  exit 0
+fi
+
 changed=0
-for conf in "$MIRRORS_DIR"/*.json; do
+for conf in "${files[@]}"; do
   mapfile -t all_packages < <(jq -r '.packages[]' "$conf")
   [[ ${#all_packages[@]} -eq 0 ]] && continue
 
@@ -46,7 +58,7 @@ for conf in "$MIRRORS_DIR"/*.json; do
   index_url="${url}/dists/${suite}/${comp_array[0]}/binary-amd64/Packages"
 
   if [[ -z "${INDEX_CACHE[$index_url]+x}" ]]; then
-    cache_key="${TMPDIR}/$(echo "$index_url" | md5sum | cut -d' ' -f1)"
+    cache_key="${WORK_DIR}/$(echo "$index_url" | md5sum | cut -d' ' -f1)"
     echo "Fetching: $index_url"
     download_index "$index_url" "$cache_key"
     INDEX_CACHE[$index_url]="$cache_key"

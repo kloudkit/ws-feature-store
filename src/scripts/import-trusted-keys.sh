@@ -7,14 +7,18 @@ set -euo pipefail
 #
 # Expects:
 #   - /run/secrets/GPG_KLOUDKIT_PRIVATE  (Docker build secret)
-#   - /tmp/mirrors/*.json                (mirror JSON files)
+#   - /tmp/src/mirrors/*.json                (mirror JSON files)
 
 gpg --batch --import /run/secrets/GPG_KLOUDKIT_PRIVATE
 
 gpg_list=$(mktemp)
 trap 'rm -f "$gpg_list"' EXIT
 
-for conf in /tmp/mirrors/*.json; do
+shopt -s nullglob
+mirror_files=(/tmp/src/mirrors/*.json)
+shopt -u nullglob
+
+for conf in "${mirror_files[@]}"; do
   gpg_url=$(jq -r '.gpg // empty' "$conf")
   [[ -z "$gpg_url" ]] && continue
   name=$(basename "$conf" .json)
@@ -29,6 +33,7 @@ for gpg_file in /usr/share/keyrings/debian-archive-keyring.gpg \
     | gpg --no-default-keyring --keyring trustedkeys.gpg --import
 done
 
+# Microsoft GPG key (used by packages.microsoft.com repos)
 gpg --no-default-keyring --keyring trustedkeys.gpg \
   --keyserver keyserver.ubuntu.com \
   --recv-keys 254B391D8CACCBF8
