@@ -24,10 +24,10 @@ fi
 for conf in "${files[@]}"; do
   name=$(jq -r '.name' "$conf")
   echo "==> Artifact: $name"
-  mkdir -p "/artifacts/$name"
 
   while IFS=$'\t' read -r url filename sha256; do
     dest="/artifacts/$name/$filename"
+    mkdir -p "$(dirname "$dest")"
     echo "  Downloading $filename"
     curl -fsSL -o "$dest" "$url"
 

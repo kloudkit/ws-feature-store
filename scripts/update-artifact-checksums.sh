@@ -28,6 +28,7 @@ for conf in "${files[@]}"; do
 
   while IFS=$'\t' read -r url filename old_sha; do
     dest="$WORK_DIR/$filename"
+    mkdir -p "$(dirname "$dest")"
     echo "  Downloading $filename"
     curl -fsSL -o "$dest" "$url"
     new_sha=$(sha256sum "$dest" | cut -d' ' -f1)

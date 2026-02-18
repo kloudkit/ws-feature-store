@@ -3,7 +3,7 @@
   "files": [
     {
       "url": "https://getcomposer.org/download/latest-stable/composer.phar",
-      "filename": "composer.phar",
+      "filename": "composer",
       "sha256": "c86ce603fe836bf0861a38c93ac566c8f1e69ac44b2445d9b7a6a17ea2e9972a"
     }
   ]

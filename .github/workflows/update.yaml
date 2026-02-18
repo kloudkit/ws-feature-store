@@ -1,0 +1,37 @@
+---
+name: 🔄 Update
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: 🔄 Update versions & checksums
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+
+      - name: 🔄 Update package versions
+        run: ./scripts/update-versions.sh
+
+      - name: 🔄 Update artifact checksums
+        run: ./scripts/update-artifact-checksums.sh
+
+      - name: 📝 Commit changes
+        run: |
+          git config user.name "kloud-bot"
+          git config user.email "ws@kloud.email"
+          git add -A
+          git diff --staged --quiet && echo "No changes to commit" || git commit -m "🔄 Update package versions & artifact checksums"
+          git push
+
+      - name: 🚀 Trigger build
+        run: gh workflow run ci.yaml
+        env:
+          GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
