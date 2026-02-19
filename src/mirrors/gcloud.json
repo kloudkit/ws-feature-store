@@ -1,9 +1,11 @@
 {
   "url": "https://packages.cloud.google.com/apt",
   "suite": "cloud-sdk",
-  "components": ["main"],
+  "components": [
+    "main"
+  ],
   "gpg": "packages.cloud.google.com/apt/doc/apt-key.gpg",
   "packages": [
-    "google-cloud-cli (>= 556.0.0-0)"
+    "google-cloud-cli (>= 557.0.0-0)"
   ]
 }
