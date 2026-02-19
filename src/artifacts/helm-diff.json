@@ -1,0 +1,16 @@
+{
+  "name": "helm-diff",
+  "version": "3.15.0",
+  "files": [
+    {
+      "url": "https://github.com/databus23/helm-diff/releases/download/v3.15.0/helm-diff-linux-amd64.tgz",
+      "filename": "amd64.tgz",
+      "sha256": "3deac2646efc2c48b2226ff7c53b484e94698f6c845bd9d03ca410ab8ed8e13c"
+    },
+    {
+      "url": "https://github.com/databus23/helm-diff/releases/download/v3.15.0/helm-diff-linux-arm64.tgz",
+      "filename": "arm64.tgz",
+      "sha256": "010a0f05bdc875038eab9e8003febba357581a8d984a45c3c5cde0eec6117fd6"
+    }
+  ]
+}

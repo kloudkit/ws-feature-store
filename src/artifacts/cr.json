@@ -1,0 +1,16 @@
+{
+  "name": "cr",
+  "version": "1.8.1",
+  "files": [
+    {
+      "url": "https://github.com/helm/chart-releaser/releases/download/v1.8.1/chart-releaser_1.8.1_linux_amd64.tar.gz",
+      "filename": "amd64.tar.gz",
+      "sha256": "834046b27b00cd6ba451326875c1937d4f2b671063c2053e031434ade73002b5"
+    },
+    {
+      "url": "https://github.com/helm/chart-releaser/releases/download/v1.8.1/chart-releaser_1.8.1_linux_arm64.tar.gz",
+      "filename": "arm64.tar.gz",
+      "sha256": "03811896f65f73faffa63aa24f54ac4fed73e088418d0582723917b69c2a280b"
+    }
+  ]
+}

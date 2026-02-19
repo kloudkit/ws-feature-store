@@ -1,0 +1,16 @@
+{
+  "name": "helm-unittest",
+  "version": "1.0.3",
+  "files": [
+    {
+      "url": "https://github.com/helm-unittest/helm-unittest/releases/download/v1.0.3/helm-unittest-linux-amd64-1.0.3.tgz",
+      "filename": "amd64.tgz",
+      "sha256": "9761f23d9509c98770c026e019e743b524b57010f4bc29175f78d2582ace0633"
+    },
+    {
+      "url": "https://github.com/helm-unittest/helm-unittest/releases/download/v1.0.3/helm-unittest-linux-arm64-1.0.3.tgz",
+      "filename": "arm64.tgz",
+      "sha256": "1e645d96b36582cd8b9fbd53240110267f14d80aa01137341251c60438bbe6b0"
+    }
+  ]
+}
