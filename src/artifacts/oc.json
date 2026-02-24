@@ -1,0 +1,16 @@
+{
+  "name": "oc",
+  "version": "4.19.0",
+  "files": [
+    {
+      "url": "https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/4.19.0/openshift-client-linux.tar.gz",
+      "filename": "amd64.tar.gz",
+      "sha256": "c90254d7ededb6da4f6d3911fbe6d7d2e35654a480d684f5d2e502e8be7cd6fd"
+    },
+    {
+      "url": "https://mirror.openshift.com/pub/openshift-v4/arm64/clients/ocp/4.19.0/openshift-client-linux.tar.gz",
+      "filename": "arm64.tar.gz",
+      "sha256": "02a1d58ed780578ff53181085794cf610e01050fb4d4d86c07b24208e4bc7278"
+    }
+  ]
+}
