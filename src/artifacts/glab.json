@@ -1,0 +1,16 @@
+{
+  "name": "glab",
+  "version": "1.86.0",
+  "files": [
+    {
+      "url": "https://gitlab.com/gitlab-org/cli/-/releases/v1.86.0/downloads/glab_1.86.0_linux_amd64.tar.gz",
+      "filename": "amd64.tar.gz",
+      "sha256": "ea2ab46b4eace60407edbea90c5bdb0c5b42400e8d047a20c6f6f0d3ec6fc281"
+    },
+    {
+      "url": "https://gitlab.com/gitlab-org/cli/-/releases/v1.86.0/downloads/glab_1.86.0_linux_arm64.tar.gz",
+      "filename": "arm64.tar.gz",
+      "sha256": "541193d06e22844386e63f20c797618a903f1c5e851a2cfb11c0193cbc21f8a9"
+    }
+  ]
+}
