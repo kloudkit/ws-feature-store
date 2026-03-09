@@ -22,7 +22,8 @@ RUN --mount=type=secret,id=GPG_KLOUDKIT_PRIVATE \
   --mount=src=src,dst=/tmp/src \
   /tmp/src/scripts/import-trusted-keys.sh \
   && /tmp/src/scripts/build-repo.sh \
-  && /tmp/src/scripts/build-artifacts.sh
+  && /tmp/src/scripts/build-artifacts.sh \
+  && /tmp/src/scripts/build-manifest.sh
 
 ################################### Runtime ###################################
 
@@ -31,6 +32,7 @@ FROM nginx:${nginx_tag}
 COPY src/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /aptly/public /usr/share/nginx/html
 COPY --from=builder /artifacts /usr/share/nginx/html/artifacts
+COPY --from=builder /manifest.json /usr/share/nginx/html/manifest.json
 
 RUN rm \
   /usr/share/nginx/html/index.html \

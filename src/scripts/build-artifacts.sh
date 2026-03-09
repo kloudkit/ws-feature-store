@@ -44,17 +44,4 @@ for conf in "${files[@]}"; do
   done < <(jq -r '.files[] | [.url, .filename, (.sha256 // "")] | @tsv' "$conf")
 done
 
-############################### Generate Manifest ##############################
-
-jq -s --arg date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '
-  {
-    built: $date,
-    artifacts: map({
-      name: .name,
-      version: (.version // null),
-      files: [.files[] | .filename]
-    })
-  }
-' "${files[@]}" > /artifacts/manifest.json
-
 echo "Artifacts downloaded to /artifacts/"

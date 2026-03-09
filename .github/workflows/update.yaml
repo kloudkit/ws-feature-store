@@ -32,6 +32,6 @@ jobs:
           git push
 
       - name: 🚀 Trigger build
-        run: gh workflow run ci.yaml
+        run: gh workflow run ci.yaml -f monthly=true
         env:
           GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
