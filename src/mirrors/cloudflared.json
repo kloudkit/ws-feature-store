@@ -6,6 +6,6 @@
   ],
   "gpg": "pkg.cloudflare.com/cloudflare-main.gpg",
   "packages": [
-    "cloudflared (>= 2026.2.0)"
+    "cloudflared (>= 2026.3.0)"
   ]
 }

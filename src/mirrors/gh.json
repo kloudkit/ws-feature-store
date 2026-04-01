@@ -6,6 +6,6 @@
   ],
   "gpg": "cli.github.com/packages/githubcli-archive-keyring.gpg",
   "packages": [
-    "gh (>= 2.87.3)"
+    "gh (>= 2.89.0)"
   ]
 }
