@@ -66,7 +66,7 @@ jobs:
             type=raw,value=${{ steps.date.outputs.version }}
 
       - name: 🐳 Docker Build & Push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         id: docker_build
         env:
           DOCKER_BUILD_SUMMARY: true
