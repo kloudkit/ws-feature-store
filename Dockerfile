@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.4
 
 # renovate: datasource=docker depName=ghcr.io/kloudkit/base-image
-ARG base_tag=v0.0.6-trixie
+ARG base_tag=v0.0.7-trixie
 # renovate: datasource=docker depName=nginx
 ARG nginx_tag=1.29.4-alpine
 
