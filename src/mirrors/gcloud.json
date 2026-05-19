@@ -6,6 +6,6 @@
   ],
   "gpg": "packages.cloud.google.com/apt/doc/apt-key.gpg",
   "packages": [
-    "google-cloud-cli (>= 567.0.0-0)"
+    "google-cloud-cli (>= 569.0.0-0)"
   ]
 }
