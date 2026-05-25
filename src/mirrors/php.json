@@ -6,17 +6,17 @@
   ],
   "gpg": "packages.sury.org/php/apt.gpg",
   "packages": [
-    "php8.5 (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-bcmath (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-curl (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-gd (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-intl (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-mbstring (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
+    "php8.5 (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-bcmath (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-curl (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-gd (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-intl (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-mbstring (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
     "php8.5-pcov (>= 1.0.12-2+0~20251124.33+debian13~1.gbp5b3479)",
-    "php8.5-pgsql (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-sqlite3 (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
+    "php8.5-pgsql (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-sqlite3 (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
     "php8.5-tokenizer",
-    "php8.5-xml (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)",
-    "php8.5-zip (>= 8.5.6-1+0~20260507.16+debian13~1.gbp6d3f1e)"
+    "php8.5-xml (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)",
+    "php8.5-zip (>= 8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6)"
   ]
 }
