@@ -84,6 +84,7 @@ jobs:
 
       - name: 📋 Extract manifest from image
         run: |
+          set -euo pipefail
           docker pull --platform linux/amd64 ghcr.io/${{ github.repository }}:latest
           container_id=$(docker create ghcr.io/${{ github.repository }}:latest)
           docker cp "$container_id:/usr/share/nginx/html/manifest.json" manifest.json
@@ -116,3 +117,9 @@ jobs:
             manifest.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔄 Sync manifest to ws-meta
+        uses: kloudkit/ws-meta/.github/actions/sync@main
+        with:
+          token: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          files: manifest.json
