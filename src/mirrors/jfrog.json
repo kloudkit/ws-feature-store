@@ -7,6 +7,6 @@
   "gpg": "releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public",
   "extra": "-architectures=amd64",
   "packages": [
-    "jfrog-cli-v2-jf (>= 2.105.0)"
+    "jfrog-cli-v2-jf (>= 2.109.0)"
   ]
 }
