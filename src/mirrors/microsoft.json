@@ -4,7 +4,7 @@
   "components": [
     "main"
   ],
-  "gpg": "packages.microsoft.com/keys/microsoft.asc",
+  "gpg": "packages.microsoft.com/keys/microsoft-rolling.asc",
   "packages": [
     "dotnet-sdk-10.0 (>= 10.0.301)",
     "dotnet-runtime-10.0 (>= 10.0.9)",
