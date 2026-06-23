@@ -1,13 +1,19 @@
 {
-  "url": "https://packages.microsoft.com/debian/12/prod",
-  "suite": "bookworm",
+  "url": "https://packages.microsoft.com/debian/13/prod",
+  "suite": "trixie",
   "components": [
     "main"
   ],
   "gpg": "packages.microsoft.com/keys/microsoft.asc",
   "packages": [
-    "dotnet-sdk-9.0 (>= 9.0.314-1)",
-    "dotnet-runtime-9.0 (>= 9.0.16-1)",
-    "aspnetcore-runtime-9.0 (>= 9.0.16-1)"
+    "dotnet-sdk-10.0 (>= 10.0.301)",
+    "dotnet-runtime-10.0 (>= 10.0.9)",
+    "aspnetcore-runtime-10.0 (>= 10.0.9)",
+    "dotnet-sdk-9.0 (>= 9.0.315-1)",
+    "dotnet-runtime-9.0 (>= 9.0.17-1)",
+    "aspnetcore-runtime-9.0 (>= 9.0.17-1)",
+    "dotnet-sdk-8.0 (>= 8.0.422-1)",
+    "dotnet-runtime-8.0 (>= 8.0.28-1)",
+    "aspnetcore-runtime-8.0 (>= 8.0.28-1)"
   ]
 }
