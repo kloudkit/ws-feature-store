@@ -9,6 +9,14 @@
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\nARG \\w+=(?<currentValue>.*)\\n"
       ],
       "versioningTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^README\\.md$/"],
+      "matchStrings": ["v(?<currentValue>\\d+\\.\\d+\\.\\d+)-dockertag"],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "ghcr.io/kloudkit/workspace",
+      "versioningTemplate": "semver"
     }
   ]
 }
