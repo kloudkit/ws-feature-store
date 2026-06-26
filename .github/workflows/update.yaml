@@ -24,12 +24,9 @@ jobs:
         run: ./scripts/update-artifact-checksums.sh
 
       - name: 📝 Commit changes
-        run: |
-          git config user.name "kloud-bot"
-          git config user.email "ws@kloud.email"
-          git add -A
-          git diff --staged --quiet && echo "No changes to commit" || git commit -m "🔄 Update package versions & artifact checksums"
-          git push
+        uses: kloudkit/ws-meta/.github/actions/commit-and-push@main
+        with:
+          message: 🔄 Update package versions & artifact checksums
 
       - name: 🚀 Trigger build
         run: gh workflow run ci.yaml -f monthly=true
