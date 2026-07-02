@@ -1,9 +1,9 @@
-# syntax=docker/dockerfile:1.23
+# syntax=docker/dockerfile:1.25
 
 # renovate: datasource=docker depName=ghcr.io/kloudkit/base-image
 ARG base_tag=v0.1.2
 # renovate: datasource=docker depName=nginx
-ARG nginx_tag=1.30.0-alpine
+ARG nginx_tag=1.31.2-alpine
 
 ################################### Builder ###################################
 
