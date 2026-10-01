@@ -6,6 +6,6 @@
   ],
   "gpg": "apt.releases.hashicorp.com/gpg",
   "packages": [
-    "terraform (>= 1.16.0-1)"
+    "terraform (>= 1.16.4-1)"
   ]
 }
