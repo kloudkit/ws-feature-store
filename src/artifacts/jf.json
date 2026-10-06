@@ -1,0 +1,16 @@
+{
+  "name": "jf",
+  "version": "2.124.0",
+  "files": [
+    {
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.124.0/jfrog-cli-linux-amd64/jf",
+      "filename": "amd64",
+      "sha256": "5d9040dea5759b776f6961717d6f8633e29af19fb4f7f6e14ae2f1b6fddf6cf2"
+    },
+    {
+      "url": "https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/2.124.0/jfrog-cli-linux-arm64/jf",
+      "filename": "arm64",
+      "sha256": "2ddb1ce0aefc8902191a3ba3e3ab979998ef575335565c2a1d9c3d141b785adb"
+    }
+  ]
+}
