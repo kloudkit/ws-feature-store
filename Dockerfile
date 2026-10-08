@@ -3,7 +3,7 @@
 # renovate: datasource=docker depName=ghcr.io/kloudkit/base-image
 ARG base_tag=v0.1.5
 # renovate: datasource=docker depName=nginx
-ARG nginx_tag=1.31.2-alpine
+ARG nginx_tag=1.31.6-alpine
 
 ################################### Builder ###################################
 
