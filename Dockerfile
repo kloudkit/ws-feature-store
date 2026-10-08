@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.25
+# syntax=docker/dockerfile:1.28
 
 # renovate: datasource=docker depName=ghcr.io/kloudkit/base-image
 ARG base_tag=v0.1.5
