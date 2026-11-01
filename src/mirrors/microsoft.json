@@ -6,14 +6,14 @@
   ],
   "gpg": "packages.microsoft.com/keys/microsoft-rolling.asc",
   "packages": [
-    "dotnet-sdk-10.0 (>= 10.0.401-1)",
-    "dotnet-runtime-10.0 (>= 10.0.12-1)",
-    "aspnetcore-runtime-10.0 (>= 10.0.12-1)",
-    "dotnet-sdk-9.0 (>= 9.0.318-1)",
-    "dotnet-runtime-9.0 (>= 9.0.20-1)",
-    "aspnetcore-runtime-9.0 (>= 9.0.20-1)",
-    "dotnet-sdk-8.0 (>= 8.0.425-1)",
-    "dotnet-runtime-8.0 (>= 8.0.31-1)",
-    "aspnetcore-runtime-8.0 (>= 8.0.31-1)"
+    "dotnet-sdk-10.0 (>= 10.0.403-1)",
+    "dotnet-runtime-10.0 (>= 10.0.14-1)",
+    "aspnetcore-runtime-10.0 (>= 10.0.14-1)",
+    "dotnet-sdk-9.0 (>= 9.0.320-1)",
+    "dotnet-runtime-9.0 (>= 9.0.22-1)",
+    "aspnetcore-runtime-9.0 (>= 9.0.22-1)",
+    "dotnet-sdk-8.0 (>= 8.0.427-1)",
+    "dotnet-runtime-8.0 (>= 8.0.33-1)",
+    "aspnetcore-runtime-8.0 (>= 8.0.33-1)"
   ]
 }
